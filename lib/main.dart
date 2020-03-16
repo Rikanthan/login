@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
+
+
       home: LoginPage(),
+
     );
   }
 }
@@ -28,53 +31,56 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            lowerHalf(context),
-            upperHalf(context),
+    return Container(
+
+        decoration: BoxDecoration(
+        image: DecorationImage(
+        image: AssetImage("images/pizza.jpg"),
+            fit: BoxFit.cover,
+            ),
+    ),      child: Column(
+
+        children: <Widget>[
+//          CircleAvatar(
+//            backgroundImage: AssetImage("images/logo.png"),
+//          ),
 
 
-          ],
-        ),
+          bottom(context),
+
+        ],
       ),
+
     );
+
   }
 
 
-
-
-
-  Widget upperHalf(BuildContext context) {
+  Widget bottom(BuildContext context) {
     return Container(
-      height: screenHeight / 3,
-      child: Image.asset(
-        'images/pizza.jpg',
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-
-  Widget lowerHalf(BuildContext context) {
-    return Container(
-
-      alignment: Alignment.bottomCenter,
-      child: Container(
+    child: Container(
 
 
-          margin: EdgeInsets.only(top: screenHeight/2),
+          margin: EdgeInsets.only(top: 170),
+
 
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
-            elevation: 8,
+            elevation: 5,
+
             child: Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+              CircleAvatar(
+          backgroundImage: AssetImage("images/logo2.png"),
+
+                maxRadius: 80,
+
+          ),
                   Align(
                     alignment: Alignment.topLeft,
                       child: Center(
